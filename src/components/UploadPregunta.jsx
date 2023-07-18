@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Row,Form, Button } from "react-bootstrap";
 import swal from "sweetalert2";
+import { CodeBlock, 		railscast  } from "react-code-blocks";
 
 export default function UploadPreguntaComponent() {
     
@@ -39,10 +40,11 @@ export default function UploadPreguntaComponent() {
         swal.fire({
             title: "¨¿Desear subir esta pregunta?",
             text: "Se subirá la pregunta al banco de preguntas",
-            icon: "warning",
+            icon: "question",
             showCancelButton: true,
-            confirmButtonText: "Subir",
             cancelButtonText: "Cancelar",
+            confirmButtonText: "Subir",
+            
         }).then((result) => {
             if (result.isConfirmed) {
                 axios.post("http://localhost:8080/pregunta", pregunta)
@@ -81,59 +83,74 @@ export default function UploadPreguntaComponent() {
                     </Form.Group>
         
                     <Form.Group controlId="codigo">
-                    <Form.Label>Código:</Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={pregunta.codigo}
-                        onChange={handleChange}
-                        name="codigo"
-                        placeholder="Ingresa el código"
-                        required
-                    />
+                        <Form.Label>Código:</Form.Label>
+                        <Form.Control
+                            as="textarea"
+                            rows={5}
+                            value={pregunta.codigo}
+                            onChange={handleChange}
+                            name="codigo"
+                            placeholder="Ingresa el código"
+                            required
+                            />
                     </Form.Group>
-        
+                    
+                    <Form.Group controlId="vistaPrevia Codigo">
+                        <Form.Label>Vista previa del código:</Form.Label>
+                        <div style={{ maxHeight: "150px", overflowY: "auto" }}>
+                            <CodeBlock
+                                text={pregunta.codigo || "\n \n \n \n"}
+                                language="python"
+                                theme={	railscast }
+                                codeBlock={{ lineNumbers: true }}
+                                wrapLines
+                                align="left"
+                                maxLines={6}
+                            />
+                        </div>
+                    </Form.Group>
+
                     <Form.Group controlId="respuesta">
-                    <Form.Label>Respuesta correcta a la pregunta:</Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={pregunta.respuesta}
-                        onChange={handleChange}
-                        name="respuesta"
-                        placeholder="Ingresa la respuesta"
-                        required
-                    />
+                        <Form.Label>Respuesta correcta a la pregunta:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={pregunta.respuesta}
+                            onChange={handleChange}
+                            name="respuesta"
+                            placeholder="Ingresa la respuesta"
+                            required
+                        />
                     </Form.Group>
         
                     <Form.Group controlId="dificultad">
                     <Form.Label>Dificultad de la pregunta:</Form.Label>
                     <div>
                         <Form.Check
-                        inline
-                        type="radio"
-                        label="Básico"
-                        name="dificultad"
-                        value={0}
-                        onChange={handleChange}
+                            inline
+                            type="radio"
+                            label="Básico"
+                            name="dificultad"
+                            value={0}
+                            onChange={handleChange}
                         />
                         <Form.Check
-                        inline
-                        type="radio"
-                        label="Intermedio"
-                        name="dificultad"
-                        value={1}
-                        onChange={handleChange}
+                            inline
+                            type="radio"
+                            label="Intermedio"
+                            name="dificultad"
+                            value={1}
+                            onChange={handleChange}
                         />
                         <Form.Check
-                        inline
-                        type="radio"
-                        label="Avanzado"
-                        name="dificultad"
-                        value={2}
-                        onChange={handleChange}
+                            inline
+                            type="radio"
+                            label="Avanzado"
+                            name="dificultad"
+                            value={2}
+                            onChange={handleChange}
                         />
                     </div>
                     </Form.Group>
-        
                     <Button variant="primary" type="submit">
                     Enviar
                     </Button>
