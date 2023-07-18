@@ -68,7 +68,6 @@ export default function UploadPreguntaComponent() {
                 <Row>
                     <h1 className="text-center">Subir Datos del Laboratorio</h1>
                 </Row>
-                <br />
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="enunciado">
                     <Form.Label>Enunciado:</Form.Label>
