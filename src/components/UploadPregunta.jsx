@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Row,Form, Button } from "react-bootstrap";
 import swal from "sweetalert2";
-import { CodeBlock, 		railscast  } from "react-code-blocks";
+import { CodeBlock, railscast  } from "react-code-blocks";
 
 export default function UploadPreguntaComponent() {
     
@@ -62,7 +62,7 @@ export default function UploadPreguntaComponent() {
     };
 
     return (
-        <>
+        <section className="layout">
             <div>
                 <br />
                 <Row>
@@ -155,6 +155,6 @@ export default function UploadPreguntaComponent() {
                     </Button>
                 </Form>
             </div>
-        </>
+        </section>
     );
 }

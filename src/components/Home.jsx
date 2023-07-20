@@ -1,18 +1,39 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap'
+import axios from 'axios';
+import Swal from 'sweetalert2';
 export default function HomeComponent() {
+    const handleBottonClick = (dificultad) => {
+        localStorage.setItem('dificultad', dificultad.toString());
+        localStorage.setItem('preguntaActual', '0');
+        axios.get("http://localhost:8080/pregunta/test/"+dificultad).then((response) => {
+            if(response.data != null && response.data.length > 0){
+                localStorage.setItem('preguntas', JSON.stringify(response.data));
+                window.location.href = '/test';
+            }else{
+                Swal.fire({
+                    title: 'Error',
+                    text: 'No hay preguntas suficientes para esta dificultad',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar',
+                    timer: 2000
+                });
+                return;
+            }
+        });
+        
+    };
+
     return (
-        <div className="home">
-            <div className="container">
-                <div className="top-section">
-                    <Button variant="primary">Básico</Button>
-                    <Button variant="primary">Intermedio</Button>
-                    <Button variant="primary">Avanzado</Button>
-                </div>
-                <div className="bottom-section">
-                    <Button variant="primary" href='upload'>Subir Pregunta</Button>
-                </div>
+        <section className="layout">
+            <div className="prueba">
+                <Button variant="primary" onClick={() => handleBottonClick(0)}>Básico</Button>
+                <Button variant="primary" onClick={() => handleBottonClick(1)}>Intermedio</Button>
+                <Button variant="primary" onClick={() => handleBottonClick(2)}>Avanzado</Button>
             </div>
-        </div>
+            <div className="subir">
+                <Button variant="primary" href='upload'>Subir Pregunta</Button>
+            </div>
+        </section>
     );
 };

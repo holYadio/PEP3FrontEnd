@@ -9,7 +9,7 @@ export default function NavBarComponent() {
                 <Navbar.Brand href="/">PyLearn</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             </Navbar>
-            <section>
+            <section className="layout">
                 <Outlet />
             </section>
         </>
