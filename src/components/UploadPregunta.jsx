@@ -62,25 +62,27 @@ export default function UploadPreguntaComponent() {
     };
 
     return (
-        <section className="layout">
-            <div>
+        <section className="layout3">
+            <div className="grow2">
+            </div>
+            <div className="grow34">
                 <br />
                 <Row>
                     <h1 className="text-center">Subir Datos del Laboratorio</h1>
                 </Row>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="enunciado">
-                    <Form.Label>Enunciado:</Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={pregunta.enunciado}
-                        onChange={handleChange}
-                        name="enunciado"
-                        placeholder="Ingresa el enunciado"
-                        required
-                    />
+                        <Form.Label>Enunciado:</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={pregunta.enunciado}
+                            onChange={handleChange}
+                            name="enunciado"
+                            placeholder="Ingresa el enunciado"
+                            required
+                        />
                     </Form.Group>
-        
+                    <br />
                     <Form.Group controlId="codigo">
                         <Form.Label>Código:</Form.Label>
                         <Form.Control
@@ -93,7 +95,7 @@ export default function UploadPreguntaComponent() {
                             required
                             />
                     </Form.Group>
-                    
+                    <br />
                     <Form.Group controlId="vistaPrevia Codigo">
                         <Form.Label>Vista previa del código:</Form.Label>
                         <div style={{ maxHeight: "150px", overflowY: "auto" }}>
@@ -108,7 +110,7 @@ export default function UploadPreguntaComponent() {
                             />
                         </div>
                     </Form.Group>
-
+                    <br />
                     <Form.Group controlId="respuesta">
                         <Form.Label>Respuesta correcta a la pregunta:</Form.Label>
                         <Form.Control
@@ -120,10 +122,10 @@ export default function UploadPreguntaComponent() {
                             required
                         />
                     </Form.Group>
-        
+                    <br />
                     <Form.Group controlId="dificultad">
                     <Form.Label>Dificultad de la pregunta:</Form.Label>
-                    <div>
+                    <div className="radio">
                         <Form.Check
                             inline
                             type="radio"
@@ -149,11 +151,16 @@ export default function UploadPreguntaComponent() {
                             onChange={handleChange}
                         />
                     </div>
+                    <br />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                    Enviar
-                    </Button>
+                    <div className="d-flex justify-content-center">
+                        <Button variant="primary" type="submit">
+                        Enviar
+                        </Button>
+                    </div>
                 </Form>
+            </div>
+            <div className="grow2">
             </div>
         </section>
     );
