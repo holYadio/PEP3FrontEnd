@@ -1,12 +1,12 @@
 body{
-  background-color: #eaeaea;
+  background-color: #8AE4D5;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #333;
   line-height: 1.5;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 .navBg {
   background-color: #0B0B0A;
@@ -35,11 +35,152 @@ body{
 }
 
 .subir { 
-  grid-area: subir; 
-  background-color: #f2f2f2;
+  grid-area: subir;
+  display: grid;
+  grid:
+    "botonesPrueba textoSubir" 1fr
+    / 40% 60%;
+  background-color: #FB818D;
+  position: relative;
 }
-.prueba { grid-area: prueba; 
-  background-color: #eaeaea;
+.botonSubir {
+  grid-area: botonesPrueba;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.botonSubir::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://i.postimg.cc/8c0m5gpw/subir.jpg'); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* Aplica el desenfoque a la imagen */
+}
+
+.btnSubir {
+  position: relative; /* Agrega esta línea para que el filtro de desenfoque no afecte al botón */
+  padding: 10px 20px;
+  background-color: #FB818D;
+  color: #0B0B0A;
+  border: #0B0B0A solid 0.5px;
+  cursor: pointer;
+  margin-bottom: 2vh;
+}
+
+.btnSubir:hover {
+  background-color: #c71426;
+  color: #f5f5f5;
+  border: #0B0B0A solid 0.5px;
+}
+
+.textoSubir { 
+  width: 100%;
+  grid-area: textoSubir;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
+.tituloSubir{
+  margin-top: 2vh;
+  margin-left: 1vw;
+  font-size: 2.3vw;
+}
+.cuerpoSubir{
+  text-align: justify;
+  margin-top: 1vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  font-size: 1.5vw;
+}
+
+.prueba { 
+  grid-area: prueba; 
+  display: grid;
+  grid:
+    "textoPrueba botonesPrueba" 1fr
+    / 60% 40%;
+  background-color: #8AE4D5;
+  position: relative;
+}
+.textoPrueba { 
+  grid-area: textoPrueba;
+}
+
+.tituloPrueba{
+  text-align: left;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: 1vw;
+  font-size: 2.3vw;
+  position: relative;
+  color: #0B0B0A;
+}
+.cuerpoPrueba{
+  text-align: justify;
+  margin-top: 1vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  font-size: 1.5vw;
+  color: #0B0B0A;
+}
+.botonesPrueba { 
+  grid-area: botonesPrueba;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.botonesPrueba::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://i.postimg.cc/gJGDtKty/prueba.jpg'); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px); /* Aplica el desenfoque a la imagen */
+}
+
+.btnPrueba {
+  position: relative; /* Agrega esta línea para que el filtro de desenfoque no afecte al botón */
+  padding: 10px 20px;
+  background-color: #8DD9E7;
+  color: #0B0B0A;
+  border: #0B0B0A solid 0.5px;
+  cursor: pointer;
+  margin-bottom: 2vh;
+}
+
+.btnPrueba:hover {
+  background-color: #4472a7;
+  border: #0B0B0A solid 0.5px;
+  color: #f5f5f5;
+}
+
+.tituloDificultad{
+  text-align: center;
+  margin-bottom: 2vh;
+  font-size: 2vw;
+  position: relative;
+  color: #f5f5f5;
 }
 
 .text-enunciado {
@@ -51,6 +192,12 @@ body{
 }
 
 .layout3 {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.layout4 {
 
   display: flex;
   flex-direction: row;
@@ -71,6 +218,7 @@ body{
   margin-top: 17vh;
   padding-top: 1vh;
   padding-bottom: 1vh;
+  background-color: #8AE4D5;
 }
 
 .grow2 { 
@@ -78,14 +226,52 @@ body{
 }
 
 .grow34 { 
-  flex-grow: 6; 
+  flex-grow: 6;
 }
 
 .botonesPregunta{
   margin-right: 1vh;
   margin-bottom: 1vh;
+  background-color: #8DD9E7;
+  color: #0B0B0A;
+  border: #0B0B0A solid 0.5px;
+  cursor: pointer;
 }
 
+.botonesPregunta:hover {
+  background-color: #4472a7;
+  border: #0B0B0A solid 0.5px;
+  color: #f5f5f5;
+}
+.botonesPreguntaAbajo{
+  margin-right: 1vh;
+  margin-bottom: 1vh;
+  background-color: #FCD24D;
+  color: #0B0B0A;
+  border: #0B0B0A solid 0.5px;
+  cursor: pointer;
+  margin-right: 20vw;
+}
+
+.botonesPreguntaAbajo:hover {
+  background-color: #856f2a;
+  border: #0B0B0A solid 0.5px;
+  color: #f5f5f5;
+}
+.botonesPreguntaAbajo1{
+  margin-right: 1vh;
+  margin-bottom: 1vh;
+  background-color: #FCD24D;
+  color: #0B0B0A;
+  border: #0B0B0A solid 0.5px;
+  cursor: pointer;
+}
+
+.botonesPreguntaAbajo1:hover {
+  background-color: #856f2a;
+  border: #0B0B0A solid 0.5px;
+  color: #f5f5f5;
+}
 .radio{
   display: flex;
   flex-direction: column;
@@ -115,4 +301,9 @@ body{
   flex-direction: column;
   justify-content: center;
   margin-left: 1vw;
+}
+.boton{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

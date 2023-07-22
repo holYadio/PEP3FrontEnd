@@ -44,6 +44,8 @@ export default function UploadPreguntaComponent() {
             showCancelButton: true,
             cancelButtonText: "Cancelar",
             confirmButtonText: "Subir",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
             
         }).then((result) => {
             if (result.isConfirmed) {
@@ -62,6 +64,7 @@ export default function UploadPreguntaComponent() {
     };
 
     return (
+        <body style={{ backgroundColor: "#f7939d" }}>
         <section className="layout3">
             <div className="grow2">
             </div>
@@ -72,7 +75,7 @@ export default function UploadPreguntaComponent() {
                 </Row>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="enunciado">
-                        <Form.Label>Enunciado:</Form.Label>
+                        <Form.Label><b>Enunciado:</b></Form.Label>
                         <Form.Control
                             type="text"
                             value={pregunta.enunciado}
@@ -84,7 +87,7 @@ export default function UploadPreguntaComponent() {
                     </Form.Group>
                     <br />
                     <Form.Group controlId="codigo">
-                        <Form.Label>Código:</Form.Label>
+                        <Form.Label><b>Código:</b></Form.Label>
                         <Form.Control
                             as="textarea"
                             rows={5}
@@ -97,7 +100,7 @@ export default function UploadPreguntaComponent() {
                     </Form.Group>
                     <br />
                     <Form.Group controlId="vistaPrevia Codigo">
-                        <Form.Label>Vista previa del código:</Form.Label>
+                        <Form.Label><b>Vista previa del código:</b></Form.Label>
                         <div style={{ maxHeight: "150px", overflowY: "auto" }}>
                             <CodeBlock
                                 text={pregunta.codigo || "\n \n \n \n"}
@@ -112,7 +115,7 @@ export default function UploadPreguntaComponent() {
                     </Form.Group>
                     <br />
                     <Form.Group controlId="respuesta">
-                        <Form.Label>Respuesta correcta a la pregunta:</Form.Label>
+                        <Form.Label><b>Respuesta correcta a la pregunta:</b></Form.Label>
                         <Form.Control
                             type="text"
                             value={pregunta.respuesta}
@@ -124,7 +127,7 @@ export default function UploadPreguntaComponent() {
                     </Form.Group>
                     <br />
                     <Form.Group controlId="dificultad">
-                    <Form.Label>Dificultad de la pregunta:</Form.Label>
+                    <Form.Label><b>Dificultad de la pregunta:</b></Form.Label>
                     <div className="radio">
                         <Form.Check
                             inline
@@ -154,7 +157,7 @@ export default function UploadPreguntaComponent() {
                     <br />
                     </Form.Group>
                     <div className="d-flex justify-content-center">
-                        <Button variant="primary" type="submit">
+                        <Button className="btnPrueba" variant="primary" type="submit">
                         Enviar
                         </Button>
                     </div>
@@ -163,5 +166,6 @@ export default function UploadPreguntaComponent() {
             <div className="grow2">
             </div>
         </section>
+    </body>
     );
 }

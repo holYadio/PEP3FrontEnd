@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
-
+import { Button, Col, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 export default function Resultado() {
     const [respuestasCorrectas, setRespuestasCorrectas] = useState([]);
     const [nota,setNota] = useState(0);
@@ -21,9 +21,27 @@ export default function Resultado() {
             setRespuestasCorrectas(storedResultados);
             setNota(promedio(storedResultados));
         }
-        console.log(storedResultados);
-        console.log(promedio(storedResultados));
+
     }, []);
+
+    const handleClick = (e) => {
+        Swal.fire({
+            title: "¿Deseas volver a inicio?",
+            text: "Se borran los resultados",
+            icon: "question",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Aceptar",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+                window.location.href = "/";
+            }
+        });
+    };
+                
     return (
         <section className="layout3">
             <div className="container">
@@ -53,9 +71,12 @@ export default function Resultado() {
                     </Col>
                     <Col>
                         <h2>
-                            Nota: 
-                            <b> {nota}
-                            </b>
+                            Nota:
+                            {nota >=4 ? (
+                                <b> {nota} </b>
+                            ) : (
+                                <span className="text-red"> <b>{nota} </b></span>
+                            )}
                         </h2>
                         {nota ===7 ? (
                             <h2>
@@ -67,8 +88,14 @@ export default function Resultado() {
                             </h2>
                             )
                         }
-                    
                     </Col>
+                </Row>
+                <Row>
+                    <div className="boton">
+                        <Button variant="primary"  onClick={handleClick}>
+                            Volver a inicio
+                        </Button>
+                    </div>
                 </Row>
             </div>
         </section>

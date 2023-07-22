@@ -32,12 +32,31 @@ export default function HomeComponent() {
     return (
         <section className="layout">
             <div className="prueba">
-                <Button variant="primary" onClick={() => handleBottonClick(0)}>Básico</Button>
-                <Button variant="primary" onClick={() => handleBottonClick(1)}>Intermedio</Button>
-                <Button variant="primary" onClick={() => handleBottonClick(2)}>Avanzado</Button>
+                <div className="textoPrueba">
+                    <h1 className='tituloPrueba'>Prueba</h1>
+                    <p className='cuerpoPrueba'>
+                        Prueba a realizar un test para comprobar cuanto sabes sobre python.
+                        El test consta de 4 preguntas de diferentes dificultades, al finalizar el test
+                        se te mostrara el resultado obtenido.
+                    </p>
+                </div>
+                <div className="botonesPrueba">
+                    <h2 className='tituloDificultad'>Selecciona la dificultad</h2>
+                    <Button className='btnPrueba' variant="primary" onClick={() => handleBottonClick(0)}>Básico</Button>
+                    <Button className='btnPrueba' variant="primary" onClick={() => handleBottonClick(1)}>Intermedio</Button>
+                    <Button className='btnPrueba' variant="primary" onClick={() => handleBottonClick(2)}>Avanzado</Button>
+                </div>
             </div>
             <div className="subir">
-                <Button variant="primary" href='upload'>Subir Pregunta</Button>
+                <div className="botonSubir">
+                    <Button className='btnSubir' variant="primary" href='upload'>Subir Pregunta</Button>
+                </div>
+                <div className="textoSubir">
+                    <h1 className='tituloSubir'> <b>Subir Pregunta </b></h1>
+                    <p  className='cuerpoSubir'>
+                        ¿Has creado un pregunta y quieres ver como otros se enfrentan a el?
+                        Accede a esta opción para agregar una nueva pregunta.</p>
+                </div>
             </div>
         </section>
     );

@@ -131,7 +131,7 @@ export default function Question1 () {
                                 </Form.Group>
                                 <br />
                                 <div className="d-flex justify-content-center">
-                                    <Button variant="primary" onClick={(e) => handleButton(e,1)}>
+                                    <Button className="botonesPreguntaAbajo1" variant="primary" onClick={(e) => handleButton(e,1)}>
                                         Siguiente
                                     </Button>
                                 </div>
@@ -152,7 +152,7 @@ export default function Question1 () {
                                     2
                                 </Button>
                             </div>
-                            <div className="botonesPregunta">
+                            <div>
                                 <Button className="botonesPregunta" variant="primary" onClick={(e) => handleButton(e,2)}>
                                     3
                                 </Button>

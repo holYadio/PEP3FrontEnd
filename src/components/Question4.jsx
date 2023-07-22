@@ -167,10 +167,10 @@ export default function Question2() {
                                 </Form.Group>
                                 <br />
                                 <div className="boton">
-                                    <Button variant="primary" onClick={(e) => handleButton(e,2)}>
+                                    <Button className="botonesPreguntaAbajo" variant="primary" onClick={(e) => handleButton(e,2)}>
                                         Anterior
                                     </Button>
-                                    <Button variant="primary" type="submit">
+                                    <Button className="botonesPregunta" variant="primary" type="submit">
                                         Enviar
                                     </Button>
                                 </div>
@@ -191,7 +191,7 @@ export default function Question2() {
                                     2
                                 </Button>
                             </div>
-                            <div className="botonesPregunta">
+                            <div>
                                 <Button className="botonesPregunta" variant="primary" onClick={(e) => handleButton(e,2)}>
                                     3
                                 </Button>
