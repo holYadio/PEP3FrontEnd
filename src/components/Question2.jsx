@@ -141,12 +141,13 @@ export default function Question2() {
                     </div>
                     <div className="grow34">
                         <br />
-                        <h4 className="text-enunciado">
+                        <h1 className="d-flex text-aling-center">
                             <b>
-                                Pregunta {preguntaActual+1}:
+                                Prueba de Python - {dificultad}
                             </b>
-                            
-                            {pregunta.enunciado}
+                        </h1>
+                        <h4 className="text-enunciado">
+                            Pregunta {preguntaActual+1}:{" "} {pregunta.enunciado}
                             
                         </h4>
                         <br />
