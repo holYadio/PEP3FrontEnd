@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { CodeBlock, railscast  } from "react-code-blocks";
 import Swal from "sweetalert2";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import CronometroComponent from "./Cronometro";
 
 export default function Question1 () {
     const initialState = {
@@ -12,6 +13,7 @@ export default function Question1 () {
     const [pregunta, setPregunta] = useState(null);
     const [respuesta,setRespuesta] = useState(initialState);
     const resultados = [0,0,0,0];
+    const [dificultad, setDificultad] = useState("");
     const navigate  = useNavigate();
 
     useEffect(() => {
@@ -29,7 +31,15 @@ export default function Question1 () {
         if (storedPregunta != null) {
             setPregunta(storedPregunta);
         }
-        
+        const storedDificultad = parseInt(localStorage.getItem("dificultad"));
+        if (storedDificultad === 0) {
+            setDificultad("Básico");
+        }else if(storedDificultad === 1){
+            setDificultad("Intermedio");
+        }else{
+            setDificultad("Avanzado");
+        }
+
     }, [navigate]);
     
     const handleChange = (e) => {
@@ -98,16 +108,17 @@ export default function Question1 () {
                     </div>
                     <div className="grow34">
                         <br />
-                        <h4 className="text-enunciado">
+                        <h1 className="d-flex text-aling-center">
                             <b>
-                                Pregunta {preguntaActual+1}:
+                                Prueba de Python - {dificultad}
                             </b>
-                            
-                            {pregunta.enunciado}
+                        </h1>
+                        <h4 className="text-enunciado">
+                            Pregunta {preguntaActual+1}:{" "} {pregunta.enunciado}
                             
                         </h4>
                         <br />
-                        <div style={{ maxHeight: "150px", overflowY: "auto" }}>
+                        <div style={{ maxHeight: "300px", overflowY: "auto" }}>
                             <CodeBlock
                                 text={pregunta.codigo}
                                 language="python"
@@ -127,6 +138,7 @@ export default function Question1 () {
                                         onChange={handleChange}
                                         name="answer"
                                         placeholder="Ingrese su respuesta aquí"
+                                        maxLength={255}
                                         />
                                 </Form.Group>
                                 <br />
@@ -166,6 +178,9 @@ export default function Question1 () {
                             <p>
                                 Tiempo:
                             </p>
+                            <div className="temporizador">
+                                <CronometroComponent />
+                            </div>
                         </div>
                         <div>
                             <Button className="botonesPregunta" variant="primary" onClick={(e) => handleSubmit(e)}>

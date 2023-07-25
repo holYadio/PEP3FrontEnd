@@ -1,5 +1,5 @@
 body{
-  background-color: #8AE4D5;
+  background-color: #f5f5f5;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -8,6 +8,7 @@ body{
   line-height: 1.5;
   overflow-x: visible;
 }
+
 .navBg {
   background-color: #0B0B0A;
   height: 6vh;
@@ -16,6 +17,7 @@ body{
 .navbar-brand {
   margin-left: 1vw;
 }
+
 .code-block-wrapper {
   font-family: "Courier New", monospace;
   font-size: 14px;
@@ -43,6 +45,7 @@ body{
   background-color: #FB818D;
   position: relative;
 }
+
 .botonSubir {
   grid-area: botonesPrueba;
   display: flex;
@@ -62,7 +65,7 @@ body{
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://i.postimg.cc/8c0m5gpw/subir.jpg'); /* Reemplaza con la ruta de tu imagen */
+  background-image: url('https://i.postimg.cc/7LCP05Ph/ASDFASDF.png'); /* Reemplaza con la ruta de tu imagen */
   background-size: cover;
   background-position: center;
   filter: blur(5px); /* Aplica el desenfoque a la imagen */
@@ -91,11 +94,13 @@ body{
   flex-direction: column;
   justify-content: right;
 }
+
 .tituloSubir{
   margin-top: 2vh;
   margin-left: 1vw;
   font-size: 2.3vw;
 }
+
 .cuerpoSubir{
   text-align: justify;
   margin-top: 1vh;
@@ -113,6 +118,7 @@ body{
   background-color: #8AE4D5;
   position: relative;
 }
+
 .textoPrueba { 
   grid-area: textoPrueba;
 }
@@ -126,6 +132,7 @@ body{
   position: relative;
   color: #0B0B0A;
 }
+
 .cuerpoPrueba{
   text-align: justify;
   margin-top: 1vh;
@@ -134,6 +141,7 @@ body{
   font-size: 1.5vw;
   color: #0B0B0A;
 }
+
 .botonesPrueba { 
   grid-area: botonesPrueba;
   display: flex;
@@ -189,6 +197,7 @@ body{
   flex-direction: column;
   align-items: left;
   font-size: 2.3vw;
+  width: 60vw;
 }
 
 .layout3 {
@@ -211,14 +220,14 @@ body{
   justify-content: center;
   align-items: center;
   border: #0B0B0A solid 1px;
-  max-height: 26vh;
+  max-height: 30vh;
   max-width: 22vh;
   margin-left: 15vh;
   margin-right: 15vh;
   margin-top: 17vh;
   padding-top: 1vh;
   padding-bottom: 1vh;
-  background-color: #8AE4D5;
+  box-shadow: 0 0 10px #0B0B0A inset;
 }
 
 .grow2 { 
@@ -232,21 +241,22 @@ body{
 .botonesPregunta{
   margin-right: 1vh;
   margin-bottom: 1vh;
-  background-color: #8DD9E7;
+  background-color: #FB818D;
   color: #0B0B0A;
   border: #0B0B0A solid 0.5px;
   cursor: pointer;
 }
 
 .botonesPregunta:hover {
-  background-color: #4472a7;
+  background-color: #c71426;
   border: #0B0B0A solid 0.5px;
   color: #f5f5f5;
 }
+
 .botonesPreguntaAbajo{
   margin-right: 1vh;
   margin-bottom: 1vh;
-  background-color: #FCD24D;
+  background-color: #FB818D;
   color: #0B0B0A;
   border: #0B0B0A solid 0.5px;
   cursor: pointer;
@@ -254,24 +264,32 @@ body{
 }
 
 .botonesPreguntaAbajo:hover {
-  background-color: #856f2a;
+  background-color: #c71426;
   border: #0B0B0A solid 0.5px;
   color: #f5f5f5;
 }
+
 .botonesPreguntaAbajo1{
   margin-right: 1vh;
   margin-bottom: 1vh;
-  background-color: #FCD24D;
+  background-color: #FB818D;
   color: #0B0B0A;
   border: #0B0B0A solid 0.5px;
   cursor: pointer;
 }
 
 .botonesPreguntaAbajo1:hover {
-  background-color: #856f2a;
+  background-color: #c71426;
   border: #0B0B0A solid 0.5px;
   color: #f5f5f5;
 }
+
+.botonesPreguntaAbajo1:after {
+  background-color: #c71426;
+  border: #0B0B0A solid 0.5px;
+  color: #f5f5f5;
+}
+
 .radio{
   display: flex;
   flex-direction: column;
@@ -279,6 +297,7 @@ body{
   width: 10vw;
   padding-left: 30vw;
 }
+
 .text-green{
   color: #1fce36;
   font-weight: bold;
@@ -296,14 +315,28 @@ body{
   align-items: center;
   margin-top: 5vh;
 }
+
 .resultados{
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 1vw;
 }
+
 .boton{
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.temporizador{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1vh;
+}
+
+.cronometro {
+  font-family: Arial, sans-serif;
+  text-align: center;
 }

@@ -64,7 +64,6 @@ export default function UploadPreguntaComponent() {
     };
 
     return (
-        <body style={{ backgroundColor: "#f7939d" }}>
         <section className="layout3">
             <div className="grow2">
             </div>
@@ -83,6 +82,7 @@ export default function UploadPreguntaComponent() {
                             name="enunciado"
                             placeholder="Ingresa el enunciado"
                             required
+                            maxLength={255}
                         />
                     </Form.Group>
                     <br />
@@ -95,6 +95,7 @@ export default function UploadPreguntaComponent() {
                             onChange={handleChange}
                             name="codigo"
                             placeholder="Ingresa el código"
+                            maxLength={255}
                             required
                             />
                     </Form.Group>
@@ -122,6 +123,7 @@ export default function UploadPreguntaComponent() {
                             onChange={handleChange}
                             name="respuesta"
                             placeholder="Ingresa la respuesta"
+                            maxLength={255}
                             required
                         />
                     </Form.Group>
@@ -166,6 +168,5 @@ export default function UploadPreguntaComponent() {
             <div className="grow2">
             </div>
         </section>
-    </body>
     );
 }

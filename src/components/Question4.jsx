@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { CodeBlock, railscast  } from "react-code-blocks";
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom'; 
+import CronometroComponent from "./Cronometro";
 
 export default function Question2() {
     const initialState = {
@@ -12,6 +13,7 @@ export default function Question2() {
     const [pregunta, setPregunta] = useState(null);
     const [respuesta,setRespuesta] = useState(initialState);
     const resultados = [0,0,0,0];
+    const [dificultad, setDificultad] = useState("");
     const navigate  = useNavigate();
 
     useEffect(() => {
@@ -29,7 +31,14 @@ export default function Question2() {
         if (storedPregunta != null) {
             setPregunta(storedPregunta);
         }
-
+        const storedDificultad = parseInt(localStorage.getItem("dificultad"));
+        if (storedDificultad === 0) {
+            setDificultad("Básico");
+        }else if(storedDificultad === 1){
+            setDificultad("Intermedio");
+        }else{
+            setDificultad("Avanzado");
+        }
         const handleBeforeUnload = (event) => {
             // Verificar si la URL de destino es "/"
             const nextURL = event.currentTarget.location.href;
@@ -142,7 +151,7 @@ export default function Question2() {
                             
                         </h4>
                         <br />
-                        <div style={{ maxHeight: "150px", overflowY: "auto" }}>
+                        <div style={{ maxHeight: "300px", overflowY: "auto" }}>
                             <CodeBlock
                                 text={pregunta.codigo}
                                 language="python"
@@ -151,7 +160,6 @@ export default function Question2() {
                                 align="left"
                             />
                         </div>
-                        <br />
                         <div className="respuesta">
                             <Form onSubmit={handleSubmit}>
                                 <br />
@@ -163,6 +171,7 @@ export default function Question2() {
                                         onChange={handleChange}
                                         name="answer"
                                         placeholder="Ingrese su respuesta aquí"
+                                        maxLength={255}
                                         />
                                 </Form.Group>
                                 <br />
@@ -205,6 +214,9 @@ export default function Question2() {
                             <p>
                                 Tiempo:
                             </p>
+                            <div className="temporizador">
+                                <CronometroComponent />
+                            </div>
                         </div>
                         <div>
                             <Button className="botonesPregunta" variant="primary" onClick={(e) => handleSubmit(e)}>

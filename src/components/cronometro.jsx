@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 export default function CronometroComponent() {
-    const [segundos, setSegundos] = useState(0);
-    const [minutos, setMinutos] = useState(0);
-    const [horas, setHoras] = useState(0);
+    const [segundos, setSegundos] = useState(parseInt(localStorage.getItem("segundos")));
+    const [minutos, setMinutos] = useState(parseInt(localStorage.getItem("minutos")));
+    const [horas, setHoras] = useState(parseInt(localStorage.getItem("horas")));
     
     useEffect(() => {
         const cronometroID = setInterval(() => {
@@ -36,12 +36,6 @@ export default function CronometroComponent() {
     localStorage.setItem("segundos", segundos);
     localStorage.setItem("minutos", minutos);
     localStorage.setItem("horas", horas);
-    
-    const reiniciarCronometro = () => {
-        setSegundos(0);
-        setMinutos(0);
-        setHoras(0);
-        };
     
     const formatoTiempo = valor => {
         return valor < 10 ? `0${valor}` : valor;

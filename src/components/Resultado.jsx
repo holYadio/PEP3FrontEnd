@@ -4,6 +4,10 @@ import Swal from "sweetalert2";
 export default function Resultado() {
     const [respuestasCorrectas, setRespuestasCorrectas] = useState([]);
     const [nota,setNota] = useState(0);
+    const preguntas = JSON.parse(localStorage.getItem("preguntas"));
+    const segundos = parseInt(localStorage.getItem("segundos"));
+    const minutos = parseInt(localStorage.getItem("minutos"));
+    const horas = parseInt(localStorage.getItem("horas"));
 
     const promedio = (array) => {
         let suma = 0;
@@ -41,6 +45,11 @@ export default function Resultado() {
             }
         });
     };
+
+    const formatoTiempo = valor => {
+        return valor < 10 ? `0${valor}` : valor;
+    };
+    
                 
     return (
         <section className="layout3">
@@ -49,7 +58,7 @@ export default function Resultado() {
                     <Col>
                         <Row>
                             <h2>
-                                RespuestasCorrectas:
+                                Respuestas Correctas:
                             </h2>
                         </Row>
                         {respuestasCorrectas.map((respuesta, index) => (
@@ -57,7 +66,7 @@ export default function Resultado() {
                                 <h2>
                                     <div className="resultados">
                                         <p>
-                                            {index + 1}.{" "}
+                                            {index + 1}.{" "}{preguntas[index].respuesta}{" "}
                                             {respuesta === 7 ? (
                                                 <span className="text-green">&#10004;</span>
                                             ) : (
@@ -70,29 +79,38 @@ export default function Resultado() {
                         ))}
                     </Col>
                     <Col>
-                        <h2>
-                            Nota:
-                            {nota >=4 ? (
-                                <b> {nota} </b>
+                        <Row>
+                            <h2>
+                                Nota:
+                                {nota >=4 ? (
+                                    <b> {nota} </b>
+                                ) : (
+                                    <span className="text-red"> <b>{nota} </b></span>
+                                )}
+                            </h2>
+                            {nota ===7 ? (
+                                <h2>
+                                    Felicidades, aprobaste el test
+                                </h2>
                             ) : (
-                                <span className="text-red"> <b>{nota} </b></span>
-                            )}
-                        </h2>
-                        {nota ===7 ? (
+                                <h2>
+                                    ¡Puedes mejorar! Sigue intentandolo.
+                                </h2>
+                                )
+                            }
+                        </Row>
+                        <br />
+                        <br />
+                        <Row>
                             <h2>
-                                Felicidades, aprobaste el test
+                                Tiempo: {`${formatoTiempo(horas)}:${formatoTiempo(minutos)}:${formatoTiempo(segundos)}`} 
                             </h2>
-                        ) : (
-                            <h2>
-                                ¡Puedes mejorar! Sigue intentandolo.
-                            </h2>
-                            )
-                        }
+                        </Row>
                     </Col>
                 </Row>
                 <Row>
                     <div className="boton">
-                        <Button variant="primary"  onClick={handleClick}>
+                        <Button className='btnPrueba' variant="primary"  onClick={handleClick}>
                             Volver a inicio
                         </Button>
                     </div>

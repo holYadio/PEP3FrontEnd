@@ -7,10 +7,14 @@ export default function HomeComponent() {
         localStorage.setItem('dificultad', dificultad.toString());
         localStorage.setItem('preguntaActual', '0');
         axios.get("http://localhost:8080/pregunta/test/"+dificultad).then((response) => {
+            console.log(response.data);
             if(response.data != null && response.data.length === 4){
                 localStorage.setItem('preguntas', JSON.stringify(response.data));
                 localStorage.setItem('pregunta', JSON.stringify(response.data[0]));
                 localStorage.setItem('respuestas',JSON.stringify(["","","",""]));
+                localStorage.setItem('segundos', '0');
+                localStorage.setItem('minutos', '0');
+                localStorage.setItem('horas', '0');
                 window.location.href = '/question1';
             }else{
                 Swal.fire({
